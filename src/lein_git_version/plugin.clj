@@ -1,7 +1,7 @@
 (ns lein-git-version.plugin
   (:use
    clojure.pprint
-   [leiningen.git-version :only [get-git-version get-git-rev]]))
+   [leiningen.git-version :only [get-git-version get-git-rev numcommits-gitrev]]))
 
 (defn middleware
   [project]
@@ -16,4 +16,4 @@
                         proj-dir "/version.clj"))]
     (-> project
         (update-in [:injections] concat `[(spit ~filename ~code)])
-        (assoc :version (get-git-version)))))
+        (assoc :version (numcommits-gitrev)))))
