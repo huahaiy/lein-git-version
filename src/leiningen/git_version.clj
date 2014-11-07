@@ -18,9 +18,9 @@
 
 (defn get-git-rev
   []
-  (apply str (rest (clojure.string/trim
+  (clojure.string/trim
                     (:out (sh
-                           "git" "rev-parse" "--short" "HEAD"))))))
+                           "git" "rev-parse" "--short" "HEAD"))))
 
 (defn get-git-last-tag
   []
