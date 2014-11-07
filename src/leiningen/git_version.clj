@@ -15,6 +15,12 @@
                     (:out (sh
                            "git" "describe" "--match" "v*.*"
                            "--abbrev=4" "--dirty=**DIRTY**"))))))
+
+(defn get-git-rev
+  []
+  (apply str (rest (clojure.string/trim
+                    (:out (sh
+                           "git" "rev" "parse" "--short" "HEAD"))))))
                          
 
 (defn git-version
