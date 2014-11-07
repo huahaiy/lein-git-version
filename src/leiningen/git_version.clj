@@ -15,6 +15,7 @@
                     (:out (sh
                            "git" "describe" "--match" "v*.*"
                            "--abbrev=4" "--dirty=**DIRTY**"))))))
+                         
 
 (defn git-version
   "Show project version, as tagged in git."
